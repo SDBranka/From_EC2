@@ -1,0 +1,81 @@
+#select_email {
+    margin-bottom: 18px;
+}
+
+#select_email form {
+    display: flex;
+}
+
+#select_email form button {
+    margin-left: 9px;
+}
+
+#contact_display {
+    margin-bottom: 18px;
+}
+
+#contact_pods {
+    margin-top: 18px;
+}
+
+#contact_pods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.contact {
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+#contact button {
+    margin-top: 7px;
+}
+
+form p {
+    margin-bottom: 9px;
+}
+
+h3 {
+    margin-bottom: 18px;
+}
+
+#add_adminitem input {
+    width: 27%;
+}
+
+#add_adminitem p span {
+    margin-left: 18px;
+}
+
+
+#name_input {
+    margin-left: 49px;
+}
+
+#price_input {
+    margin-left: 49px;
+}
+
+#notes {
+    display: flex;
+}
+
+#quantity_input {
+    margin-left: 29px;
+}
+
+#add_adminitem textarea {
+    width: 60%;
+    margin-left: 9px;
+}
+
+#office_notes {
+    margin-bottom: 18px;
+}
+
+#office_notes textarea {
+    width: 81%;
+    height: 234px;
+}

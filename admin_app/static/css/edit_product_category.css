@@ -1,0 +1,24 @@
+#prod_cats,
+#prod_desc,
+#add_remove_category  {
+    display: flex;
+}
+
+#p_cats,
+#p_desc {
+    margin-left: 9px;
+}
+
+#add_remove_category {
+    margin-top: 27px;
+}
+
+#add_category,
+#remove_category {
+    flex: 1;
+}
+
+#add_category button,
+#remove_category button {
+    margin: 9px 0px 0px 63px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Quotes Display</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/quotes_display.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>Welcome, {{ logged_user.first_name }}</h1>
+            <div id="links">
+                <a href="/admin_access">Admin Home</a>  |  
+                <a href="/">Back to Store</a>  |  
+                <a href="/signon/logout">Logout</a>
+            </div>      <!--end links-->
+        </div>      <!--end header-->
+        <div id="content">
+            <h2>Quotes</h2>
+            <div id="errors">
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>      <!--end errors-->    
+            <form action="/admin_access/find_quote" method="POST">
+                {% csrf_token %}
+                <p>View a Quote By Ref#: <input type="text" name="quote_ref_num"></p>
+                <input type="hidden" name="redirect_to" value="quotes_display/1">
+                <button type="submit">Search</button>
+            </form>
+            <div id="quotes">
+                <h3>All Active Quotes</h3>
+                {% for quote in all_active_quotes %}
+                    <div class="quote_pod">
+                        <!-- view_quote/{{ quote_id }} -->
+                        <div class="quote_info">
+                            <h3>Ref #:<a href="/admin_access/view_quote/{{ quote.id }}">{{ quote.ref_number }}</a></h3>
+                            <p>Date Placed: {{ quote.placed_at }} <span class="quote_price">List Price: {{quote.total_price }}</span></p>
+                            <p>Name: {{ quote.quoted_by.last_name }}, {{ quote.quoted_by.first_name }}</p>
+                            <p>Last Updated: {{ quote.updated_at }}</p>                            
+                        </div>                    <!--end .quote_info-->
+                        <div class="quote_status">
+                            {% if quote.status == "pending" %}
+                                <h3 class="status red">{{ quote.status }}</h3>
+                            {% elif quote.status == "in process" %}
+                                <h3 class="status green">{{ quote.status }}</h3>
+                            {% endif %}
+                        </div>      <!--end .quote_status-->                
+                    </div>      <!--end .quote_pod-->
+                {% endfor%}
+                <a href="/admin_access/completed_quotes_display/1">View Completed Quotes</a>
+                <div id="page_nav">
+                    {% if all_active_quotes.has_previous %}
+                        <button>
+                            <a href="/admin_access/quotes_display/{{ all_active_quotes.previous_page_number }}">&laquo;</a>
+                        </button>
+                    {% endif %}
+                    {% for i in num_of_pages %}
+                        <button>
+                            <a href="/admin_access/quotes_display/{{ forloop.counter }}">{{ forloop.counter }}</a>
+                        </button>
+                    {% endfor %}
+                    {% if all_active_quotes.has_next %}
+                        <button>
+                            <a href="/admin_access/quotes_display/{{ all_active_quotes.next_page_number }}">&raquo;</a>
+                        </button>
+                    {% endif %}
+                </div>      <!--page_nav-->            
+            </div>      <!--end quotes-->
+        </div>      <!--end content-->
+    </div>      <!--end wrapper-->
+</body>
+
+</html>

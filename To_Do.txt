@@ -1,0 +1,91 @@
+
+*order order processing
+   *make a finished quote and finished order model to store completed
+   quotes/orders so that they will not change with 
+   any database changes
+      -perhaps use CompletedQuote and Invoice
+*make sure add_attached_order visible regardless of 
+ order/quote status view_order/quote:admin
+   -(good for "pending" and "in process")
+*process_add_prod_photo:admin validations
+*paginate edit_user:admin
+
+
+-add filter by to select_product:admin
+-search_by bar for quotes/orders_display:admin
+   -Search for a portion of a ref# (or other field)
+-easy of use features
+-add formtracer link store_index:store
+
+
+
+
+Questions:
+-Once something is deployed how can you make updates without altering your
+ database
+-The way I hid my secret key won't allow me to deploy
+-Is it preferable to have more smaller files or less but large ones
+-Search for a portion of a ref# (or other field)
+
+
+
+Look Into:
+_automate the boring stuff with python
+_scrape data from the web
+_wk7/8 ajax
+
+
+
+Corrected:
+-Decimal field error on process_add_item_to_quote
+-Img_app views line 132 & 133 order_by not working
+*It is making EnteredItems, but not creating QuoteItems if there 
+ is already an open quote
+    -process_add_service_to_quote line 119 vs 
+     process_add_item_to_quote line 231
+        -see _MAIN error pic
+-style the log/reg page
+*display validation error messages from multiple classes in the 
+ same check-->display
+   -line 166 and 171-174 Img_app views
+*display ordered_by and contact info in orders/quotes_display
+* on request_quote:store limit add item to users
+*build individual view page for quote/order:store
+-Add exp_desc to new/edit product creation
+-Admin can delete any quote not completed or archived
+-add part/item $ to view_quote:admin
+*build edit quotes in view_quotes:admin
+*add enter shipping as an EnteredItem to quote processing:admin
+*add discounts as EnteredItem to quote processing:admin
+**ADD ADMINITEMS TO ORDER ON QUOTE COMPLETION!!! 
+*add adminitems to view_order:admin
+*view_quote:admin order_by names not displaying
+*add edit in process order functionality on view_order:admin
+*office notes in process view_quote:admin
+*in process view_quote:admin start attatched order
+   -open in separate window/tab 
+*admin may create quote
+#Admin generated quote won't process to Order
+*add adminitems to view_quote:store
+*add adminitems to view_order:store
+*ref# validations on build_attached_quote:admin
+*price and quantity numeric regex fail 
+ in build_attached_order:admin
+*edit_product:admin validations not displaying in page
+*administrative:admin validations
+**find_quote:admin validations
+-move the iso 17025 badge
+-fix edit_product:admin validations
+-add product validations adminstractive:admin
+-admin may create quote using AdminItem
+* paginate select_product:admin
+ *Delete an order view_order:admin
+-Admin can delete any Quote that is not status "archived"
+ or "completed"
+*find_order:admin ref# validations
+*paginate orders_display:admin
+*add adminitem to order in process validations
+*add adminitem to quote in process validations
+-add delete category to administrative:admin 
+*build view_product:store page
+*add category:admin validations

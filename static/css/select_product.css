@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+table, th, td {
+    border: 2px solid rgb(77, 77, 201)
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    text-align: center;
+}
+
+.prod_img,
+#actions {
+    text-align: center;
+}
+
+#display_products img {
+    height: 200px;
+}
+
+#actions p {
+    margin-bottom: 5px;
+}
+

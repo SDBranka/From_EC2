@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin_main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin_index.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h1>Welcome, {{ logged_user.first_name }}</h1>
+            <div id="links">
+                <a href="/">Back to Store</a> |
+                <a href="/signon/logout">Logout</a>
+            </div>      <!--end links-->
+        </div>      <!--end header-->
+        <div id="content">
+            <div id="navigation">
+                <h3>Navigation</h3>
+                <div id="nav_links">
+                    <a href="/admin_access/quotes_display/1">View Quotes</a>
+                    <a href="/admin_access/orders_display/1">View Orders</a>
+                    <a href="/admin_access/select_product/1">Edit Product</a>
+                    <a href="/admin_access/edit_user/1">Edit User</a>
+                    <a href="/admin_access/build_quote">Build Quote</a>
+                    <a href="/admin_access/administrative">Administrative</a>
+
+                </div>      <!--end nav_links-->
+            </div>      <!--end navigation-->
+            <div id="dashboard">
+                <h2>---Dashboard---</h2>
+                <div id="new_info">
+                    <div id="quote_display">
+                        <h3>Quotes</h3>
+                        {% if new_quotes %}
+                        <h4 class="green">You have: {{ new_quotes.count }} pending quotes!</h4>
+                        <div id="new_quote_display">
+                            {% for quote in new_quotes %}
+                            <div class="pod">
+                                <p>Ref #: <a href="/admin_access/view_quote/{{ quote.id }}">{{ quote.ref_number }}</a>
+                                </p>
+                                <p>Name: {{ quote.quoted_by.last_name }}, {{ quote.quoted_by.first_name }}</p>
+                                <p>List Price: {{quote.total_price }}</p>
+                                <p>Date Placed: {{ quote.placed_at }}</p>
+                            </div>      <!--end .pod-->
+                            {% endfor %}        <!--end for quote in new_quotes-->
+                        </div>      <!--end new_quote_display-->
+                        {% else %}
+                        <p>You have no new quotes pending</p>
+                        {%  endif %}        <!--end if new_quotes-->
+                        <div id="quote_stats">
+                            <!-- # status choices = {pending, in process, completed, archived } -->
+                            <h4>You have:</h4>
+                            <p>{{ quote_in_process_count }} quotes in process</p>
+                        </div>      <!--end quote_stats-->
+                    </div>      <!--end quote_display-->
+                    <div id="order_display">
+                        <h3>Orders</h3>
+                        <p>{{ order_pending_count }} orders pending</p>
+                        <p>{{ order_in_process_count }} orders in process</p>
+                    </div>      <!--end order_display-->
+                </div>      <!--end new_info-->
+            </div>      <!--end dashboard-->
+        </div>      <!--end content-->
+    </div>      <!--end wrapper-->
+</body>
+
+</html>

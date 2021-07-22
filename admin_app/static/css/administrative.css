@@ -1,0 +1,70 @@
+#row_1 {
+    display: flex;
+}
+
+h2 {
+    margin-bottom: 9px;
+}
+
+#add_product {
+    margin-right: 10px;
+}
+
+#add_product form p {
+    margin-bottom: px;
+}
+
+#product_name_input {
+    margin-left: 75px;
+}
+
+#part_number_input {
+    margin-left: 31px;
+}
+
+#manufacturer_input {
+    margin-left: 26px;
+}
+
+#price_input {
+    margin-left: 80px;
+}
+
+#description,
+#exp_description {
+    display: flex;
+}
+
+#description textarea {
+    margin: 0px 9px 9px 91px;
+    width: 370px;
+}
+
+#exp_description textarea {
+    margin: 0px 9px 9px 23px;
+    width: 370px;
+    height: 350px;
+}
+
+#add_product form button {
+    margin-left: 470px;
+}
+
+#add_category h2 {
+    margin-bottom: 9px;
+}
+
+#add_product p,
+#add_category p,
+#remove_category p {
+    margin-bottom: 5px;
+}
+
+#remove_category {
+    margin-top: 27px;
+}
+
+#add_category button,
+#remove_category button {
+    margin: 9px 0px 0px 171px;
+}
