@@ -268,7 +268,10 @@ class Photo(models.Model):
         related_name="product_photos",
         on_delete = models.CASCADE
     )
-    img = models.ImageField(upload_to='product_images', default = "product_images/no_img_available.jpg", null = True, blank = True)
+    img = models.ImageField(upload_to='product_images', 
+        default = "product_images/no_img_available.jpg", 
+        null = True, 
+        blank = True)
     img_alt = models.CharField(max_length=27, default="no photo available")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
